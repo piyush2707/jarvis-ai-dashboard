@@ -13,7 +13,7 @@ This project features a **glassmorphism design**, **neon effects**, and interact
 ✔ Glassmorphism + Neon Glow  
 
 ## 🎥 Live Demo
-👉 [**View on GitHub Pages**](https://your-username.github.io/jarvis-ai-dashboard/)  
+👉 [**View on GitHub Pages**](https://piyush2707.github.io/jarvis-ai-dashboard/)  
 
 
 ---
