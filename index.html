@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarvis Dashboard</title>
+<style>
+/* === Global Styles === */
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+  background: radial-gradient(circle at top, #0a0f1c, #000);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Dashboard Container */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 1100px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0,255,255,0.2);
+}
+
+/* Widgets */
+.widget {
+  background: rgba(0,0,0,0.5);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,255,255,0.2);
+  transition: transform 0.3s ease;
+}
+.widget:hover {transform: scale(1.05);}
+
+/* Neon Titles */
+.widget h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+
+/* Clock */
+#time {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 15px #0ff;
+}
+
+/* Weather */
+#weather {
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px #0ff;
+}
+
+/* System Info */
+#system-info {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Footer */
+.footer {
+  grid-column: span 3;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.footer a {
+  color: #0ff;
+  text-decoration: none;
+}
+.footer a:hover {text-decoration: underline;}
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+  <!-- Clock Widget -->
+  <div class="widget">
+    <h2>Current Time</h2>
+    <div id="time">00:00:00</div>
+  </div>
+
+  <!-- Weather Widget -->
+  <div class="widget">
+    <h2>Weather</h2>
+    <div id="weather">Loading...</div>
+  </div>
+
+  <!-- System Info -->
+  <div class="widget">
+    <h2>System Info</h2>
+    <div id="system-info">
+      OS: <span id="os"></span><br>
+      Browser: <span id="browser"></span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Designed by <strong>Piyush Joshi</strong> | 
+    <a href="https://www.linkedin.com/in/piyush-joshi-703b722b7" target="_blank">LinkedIn</a>
+  </div>
+</div>
+
+<script>
+// Clock
+function updateTime() {
+  const timeEl = document.getElementById('time');
+  const now = new Date();
+  timeEl.textContent = now.toLocaleTimeString();
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+// Fake Weather (random)
+const weatherConditions = ["☀️ Sunny 28°C", "🌤 Partly Cloudy 24°C", "🌧 Rainy 20°C", "❄️ Snow 5°C"];
+document.getElementById('weather').textContent = weatherConditions[Math.floor(Math.random() * weatherConditions.length)];
+
+// System Info
+document.getElementById('os').textContent = navigator.platform;
+document.getElementById('browser').textContent = navigator.userAgent.split(' ')[0];
+</script>
+
+</body>
+      </html>
